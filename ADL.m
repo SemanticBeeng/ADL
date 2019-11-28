@@ -145,10 +145,10 @@ for iFolds = 1:nFolds
     % metrics calculation
     parameter.Loss(iFolds) = parameter.net.loss(parameter.net.index);
     tTest(bd*iFolds+(1-bd):bd*iFolds,:) = parameter.net.sigma;
-    if iFolds > 1
-        acttualLabel    = [acttualLabel parameter.net.acttualLabel'];
-        classPerdiction = [classPerdiction parameter.net.classPerdiction'];
-    end
+    % if iFolds > 1
+    %     acttualLabel    = [acttualLabel parameter.net.acttualLabel'];
+    %     classPerdiction = [classPerdiction parameter.net.classPerdiction'];
+    % end
     parameter.residual_error(bd*iFolds+(1-bd):bd*iFolds,:) = parameter.net.residual_error;
     parameter.cr(iFolds) = parameter.net.cr;
     
@@ -358,7 +358,7 @@ for iFolds = 1:nFolds
 end
 
 %% statistical measure
-[performance.f_measure,performance.g_mean,performance.recall,performance.precision,performance.err] = performanceMeasure(acttualLabel, classPerdiction, M);
+% [performance.f_measure,performance.g_mean,performance.recall,performance.precision,performance.err] = performanceMeasure(acttualLabel, classPerdiction, M);
 
 %% save the numerical result
 parameter.drift         = driftState;
